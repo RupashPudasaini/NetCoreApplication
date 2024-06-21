@@ -1,0 +1,23 @@
+@page
+@model OpenAIWebApp.Pages.OpenAIModel
+@{
+    ViewData["Title"] = "OpenAI";
+}
+
+<h2>OpenAI Text Submission</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="UserInput">Enter your text:</label>
+        <input type="text" class="form-control" id="UserInput" name="UserInput" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@if (Model.ResponseText != null)
+{
+    <div class="alert alert-success mt-3">
+    <h4>Response from OpenAI:</h4>
+    <p>@Model.ResponseText</p>
+</div>
+}
