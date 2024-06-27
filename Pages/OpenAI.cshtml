@@ -6,7 +6,7 @@
 
 <h2>OpenAI Text Submission</h2>
 
-<form method="post">
+<form method="post" asp-page-handler="Chat">
     <div class="form-group">
         <label for="UserInput">Enter your text:</label>
         <input type="text" class="form-control" id="UserInput" name="UserInput" />
@@ -21,3 +21,19 @@
     <p>@Model.ResponseText</p>
 </div>
 }
+
+
+<div class="text-center">
+    <h1 class="display-4">Upload a File</h1>
+    <form method="post" enctype="multipart/form-data" asp-page-handler="Upload">
+        <input type="file" name="uploadedFile" />
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+    <div>
+        @if (Model.Summary != null)
+        {
+            <h3>Summary:</h3>
+            <p>@Model.Summary</p>
+        }
+    </div>
+</div>
